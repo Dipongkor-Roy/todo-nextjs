@@ -11,7 +11,18 @@ const page = () => {
     setTitle('');
     setDesc('');
   }
-  let renderTask='No Task Available'
+  let renderTask='No Task Available';
+  if(mainTask>0){ // condition for no task
+    renderTask= mainTask.map((t,i)=>{
+      return <li>
+        <div className="flex justify-between">
+        <h2 className="text-2xl font-semibold">{t.title}</h2>
+        <h2 className="text-xl font-semibold">{t.desc}</h2>
+  
+      </div>
+      </li>
+    })
+  }
   return (
     <>
       <h2 className="bg-black text-white text-3xl text-center">Todo List</h2>
